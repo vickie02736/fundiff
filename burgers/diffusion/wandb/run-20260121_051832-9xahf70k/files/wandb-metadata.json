@@ -1,0 +1,44 @@
+{
+  "os": "Linux-5.4.0-153-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.10.19",
+  "startedAt": "2026-01-20T21:18:32.978562Z",
+  "args": [
+    "--config=configs/autoencoder.py:fae",
+    "--config.training.use_pde=True"
+  ],
+  "program": "/autodl-fs/data/fundiff/burgers/diffusion/main.py",
+  "codePath": "burgers/diffusion/main.py",
+  "codePathLocal": "main.py",
+  "git": {
+    "remote": "https://github.com/sifanexisted/fundiff.git",
+    "commit": "3a663722ea8ed9f1da98f67a1af22445f7f488c2"
+  },
+  "email": "vickie02736@gmail.com",
+  "root": "/autodl-fs/data/fundiff/burgers/diffusion",
+  "host": "autodl-container-adcf44b688-9a256a8b",
+  "executable": "/root/miniconda3/envs/fundiff_env/bin/python",
+  "cpu_count": 64,
+  "cpu_count_logical": 128,
+  "gpu": "NVIDIA vGPU-32GB",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "32212254720",
+      "used": "12644950016"
+    }
+  },
+  "memory": {
+    "total": "540738871296"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA vGPU-32GB",
+      "memoryTotal": "34351349760",
+      "cudaCores": 9728,
+      "architecture": "Ada",
+      "uuid": "GPU-d03969d3-dfe6-a880-23a7-005f596dd303"
+    }
+  ],
+  "cudaVersion": "12.8",
+  "writerId": "s8mnx3f4rslewb7l01ll6o8aibfygtll"
+}

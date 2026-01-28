@@ -1,0 +1,42 @@
+I0121 02:36:17.915143 140432895546432 checkpoint_manager.py:709] [process=0][thread=MainThread] CheckpointManager init: checkpointers=None, item_names=None, item_handlers=None, handler_registry=None
+I0121 02:36:17.915686 140432895546432 composite_checkpoint_handler.py:505] Initialized registry DefaultCheckpointHandlerRegistry({('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonSaveArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7fb910c230a0>, ('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonRestoreArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7fb910c230a0>}).
+I0121 02:36:17.916201 140432895546432 abstract_checkpointer.py:35] orbax-checkpoint version: 0.11.32
+I0121 02:36:17.916409 140432895546432 async_checkpointer.py:177] [process=0][thread=MainThread] Using barrier_sync_fn: <function get_barrier_sync_fn.<locals>.<lambda> at 0x7fb910c1a170> timeout: 600 secs and primary_host=0 for async checkpoint writes
+I0121 02:36:17.918651 140432895546432 checkpoint_manager.py:1818] Found 0 checkpoint steps in /autodl-fs/data/fundiff/burgers/diffusion/FAE_use_pde_True/ckpt
+I0121 02:36:17.918990 140432895546432 checkpoint_manager.py:929] [process=0][thread=MainThread] CheckpointManager created,  primary_host=0, CheckpointManagerOptions=CheckpointManagerOptions(save_interval_steps=1, max_to_keep=1, keep_time_interval=None, keep_period=None, should_keep_fn=None, best_fn=None, best_mode='max', keep_checkpoints_without_metrics=True, step_prefix=None, step_format_fixed_length=None, step_name_format=None, create=True, cleanup_tmp_directories=False, save_on_steps=frozenset(), single_host_load_and_broadcast=False, todelete_subdir=None, todelete_full_path=None, enable_background_delete=False, read_only=False, enable_async_checkpointing=True, async_options=None, multiprocessing_options=MultiprocessingOptions(primary_host=0, active_processes=None, barrier_sync_key_prefix=None), should_save_fn=None, file_options=FileOptions(path_permission_mode=None), save_root_metadata=True, temporary_path_class=None, save_decision_policy=None, preservation_policy=None, prevent_write_metrics=False, enable_should_save_is_saving_in_progress_check=True, enable_per_process_directory_creation=False, lightweight_initialize=False), root_directory=/autodl-fs/data/fundiff/burgers/diffusion/FAE_use_pde_True/ckpt: <orbax.checkpoint.checkpoint_manager.CheckpointManager object at 0x7fb910f48100>
+/root/miniconda3/envs/fundiff_env/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+Traceback (most recent call last):
+  File "/autodl-fs/data/fundiff/burgers/diffusion/main.py", line 41, in <module>
+    app.run(main)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/absl/app.py", line 316, in run
+    _run_main(main, args)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/absl/app.py", line 261, in _run_main
+    sys.exit(main(argv))
+  File "/autodl-fs/data/fundiff/burgers/diffusion/main.py", line 30, in main
+    train_autoencoder.train_and_evaluate(FLAGS.config)
+  File "/autodl-fs/data/fundiff/burgers/diffusion/train_autoencoder.py", line 107, in train_and_evaluate
+    state, loss, loss_data, loss_res = train_step(state, batch)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/traceback_util.py", line 182, in reraise_with_filtered_traceback
+    return fun(*args, **kwargs)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/pjit.py", line 292, in cache_miss
+    executable, pgle_profiler) = _python_pjit_helper(fun, jit_info, *args, **kwargs)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/pjit.py", line 153, in _python_pjit_helper
+    out_flat, compiled, profiler = _pjit_call_impl_python(*args_flat, **p.params)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/pjit.py", line 1855, in _pjit_call_impl_python
+    ).compile()
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py", line 2410, in compile
+    executable = UnloadedMeshExecutable.from_hlo(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py", line 2952, in from_hlo
+    xla_executable = _cached_compilation(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py", line 2743, in _cached_compilation
+    xla_executable = compiler.compile_or_get_cached(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/compiler.py", line 500, in compile_or_get_cached
+    return _compile_and_write_cache(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/compiler.py", line 768, in _compile_and_write_cache
+    executable = backend_compile_and_load(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/profiler.py", line 354, in wrapper
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/compiler.py", line 385, in backend_compile_and_load
+    return backend.compile_and_load(
+KeyboardInterrupt

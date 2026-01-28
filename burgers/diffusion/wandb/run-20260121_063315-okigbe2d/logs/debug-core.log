@@ -1,0 +1,12 @@
+{"time":"2026-01-21T06:33:15.370305141+08:00","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmp3xt_gp21/port-40069.txt","pid":40069,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2026-01-21T06:33:15.370914676+08:00","level":"INFO","msg":"server: will exit if parent process dies","ppid":40069}
+{"time":"2026-01-21T06:33:15.370872895+08:00","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-40069-41292-1349695155/socket","Net":"unix"}}
+{"time":"2026-01-21T06:33:15.556128636+08:00","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
+{"time":"2026-01-21T06:33:15.566347225+08:00","level":"INFO","msg":"handleInformInit: received","streamId":"okigbe2d","id":"1(@)"}
+{"time":"2026-01-21T06:33:16.304075273+08:00","level":"INFO","msg":"handleInformInit: stream started","streamId":"okigbe2d","id":"1(@)"}
+{"time":"2026-01-21T06:33:16.950110653+08:00","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"1(@)"}
+{"time":"2026-01-21T06:33:16.950180095+08:00","level":"INFO","msg":"connection: closing","id":"1(@)"}
+{"time":"2026-01-21T06:33:16.950248836+08:00","level":"INFO","msg":"connection: closed successfully","id":"1(@)"}
+{"time":"2026-01-21T06:33:16.950197555+08:00","level":"INFO","msg":"server is shutting down"}
+{"time":"2026-01-21T06:33:16.950337938+08:00","level":"INFO","msg":"server: listener closed","addr":{"Name":"/tmp/wandb-40069-41292-1349695155/socket","Net":"unix"}}
+{"time":"2026-01-21T06:33:18.589829318+08:00","level":"INFO","msg":"server: parent process exited, terminating service process"}

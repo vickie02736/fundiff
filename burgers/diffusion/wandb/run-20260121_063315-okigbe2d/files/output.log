@@ -1,0 +1,65 @@
+Creating checkpoint manager...
+I0121 06:33:16.926441 140627035518016 checkpoint_manager.py:709] [process=0][thread=MainThread] CheckpointManager init: checkpointers=None, item_names=None, item_handlers=None, handler_registry=None
+I0121 06:33:16.926840 140627035518016 composite_checkpoint_handler.py:505] Initialized registry DefaultCheckpointHandlerRegistry({('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonSaveArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7fe2ec4e17b0>, ('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonRestoreArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7fe2ec4e17b0>}).
+I0121 06:33:16.927196 140627035518016 abstract_checkpointer.py:35] orbax-checkpoint version: 0.11.32
+I0121 06:33:16.927375 140627035518016 async_checkpointer.py:177] [process=0][thread=MainThread] Using barrier_sync_fn: <function get_barrier_sync_fn.<locals>.<lambda> at 0x7fe2ec4b6830> timeout: 600 secs and primary_host=0 for async checkpoint writes
+I0121 06:33:16.929187 140627035518016 checkpoint_manager.py:1818] Found 0 checkpoint steps in /autodl-fs/data/fundiff/burgers/diffusion/FAE_use_pde_True/ckpt
+I0121 06:33:16.929562 140627035518016 checkpoint_manager.py:929] [process=0][thread=MainThread] CheckpointManager created,  primary_host=0, CheckpointManagerOptions=CheckpointManagerOptions(save_interval_steps=1, max_to_keep=1, keep_time_interval=None, keep_period=None, should_keep_fn=None, best_fn=None, best_mode='max', keep_checkpoints_without_metrics=True, step_prefix=None, step_format_fixed_length=None, step_name_format=None, create=True, cleanup_tmp_directories=False, save_on_steps=frozenset(), single_host_load_and_broadcast=False, todelete_subdir=None, todelete_full_path=None, enable_background_delete=False, read_only=False, enable_async_checkpointing=True, async_options=None, multiprocessing_options=MultiprocessingOptions(primary_host=0, active_processes=None, barrier_sync_key_prefix=None), should_save_fn=None, file_options=FileOptions(path_permission_mode=None), save_root_metadata=True, temporary_path_class=None, save_decision_policy=None, preservation_policy=None, prevent_write_metrics=False, enable_should_save_is_saving_in_progress_check=True, enable_per_process_directory_creation=False, lightweight_initialize=False), root_directory=/autodl-fs/data/fundiff/burgers/diffusion/FAE_use_pde_True/ckpt: <orbax.checkpoint.checkpoint_manager.CheckpointManager object at 0x7fe30c42c130>
+Checkpoint manager created successfully
+Pre-computing constants...
+Traceback (most recent call last):
+  File "/autodl-fs/data/fundiff/burgers/diffusion/main.py", line 41, in <module>
+    app.run(main)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/absl/app.py", line 316, in run
+    _run_main(main, args)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/absl/app.py", line 261, in _run_main
+    sys.exit(main(argv))
+  File "/autodl-fs/data/fundiff/burgers/diffusion/main.py", line 30, in main
+    train_autoencoder.train_and_evaluate(FLAGS.config)
+  File "/autodl-fs/data/fundiff/burgers/diffusion/train_autoencoder.py", line 105, in train_and_evaluate
+    downsample_factors = jnp.array([1, 2, 5]) if config.training.random_resolution else None
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/numpy/array.py", line 268, in array
+    out_array: Array = lax._convert_element_type(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/lax/lax.py", line 1726, in _convert_element_type
+    return convert_element_type_p.bind(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/core.py", line 536, in bind
+    return self._true_bind(*args, **params)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/core.py", line 552, in _true_bind
+    return self.bind_with_trace(prev_trace, args, params)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/lax/lax.py", line 4902, in _convert_element_type_bind_with_trace
+    operand = core.Primitive.bind_with_trace(convert_element_type_p, trace, args, params)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/core.py", line 562, in bind_with_trace
+    return trace.process_primitive(self, args, params)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/core.py", line 1066, in process_primitive
+    return primitive.impl(*args, **params)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/dispatch.py", line 91, in apply_primitive
+    outs = fun(*args)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/traceback_util.py", line 182, in reraise_with_filtered_traceback
+    return fun(*args, **kwargs)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/pjit.py", line 292, in cache_miss
+    executable, pgle_profiler) = _python_pjit_helper(fun, jit_info, *args, **kwargs)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/pjit.py", line 153, in _python_pjit_helper
+    out_flat, compiled, profiler = _pjit_call_impl_python(*args_flat, **p.params)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/pjit.py", line 1846, in _pjit_call_impl_python
+    compiled = _resolve_and_lower(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/pjit.py", line 1813, in _resolve_and_lower
+    return _pjit_lower(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/pjit.py", line 1931, in _pjit_lower
+    return _pjit_lower_cached(*args, **kwargs)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/pjit.py", line 1951, in _pjit_lower_cached
+    return pxla.lower_sharding_computation(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/profiler.py", line 354, in wrapper
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py", line 2321, in lower_sharding_computation
+    nreps, tuple_args, shape_poly_state) = _cached_lowering_to_hlo(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py", line 1912, in _cached_lowering_to_hlo
+    lowering_result = mlir.lower_jaxpr_to_module(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/interpreters/mlir.py", line 1274, in lower_jaxpr_to_module
+    lower_jaxpr_to_fun(
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/interpreters/mlir.py", line 1497, in lower_jaxpr_to_fun
+    dim_var_avals = [core.ShapedArray((), dtypes.canonicalize_dtype(np.int64))] * num_dim_vars
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/core.py", line 2044, in __init__
+    self.shape = canonicalize_shape(shape)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/core.py", line 1849, in canonicalize_shape
+    def canonicalize_shape(shape: Shape, context: str="") -> tuple[Any, ...]:
+KeyboardInterrupt

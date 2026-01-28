@@ -32,12 +32,12 @@ def get_base_config():
 
     # Dataset
     config.dataset = dataset = ml_collections.ConfigDict()
-    dataset.data_path = "/scratch/sifanw/transformer_as_integrator/burgers/burger_nu_1e-3.mat"
+    dataset.data_path = "/root/autodl-tmp/burger_nu_1e-3.mat"
     dataset.downsample_factor = 1
     dataset.num_train_samples = 3600
     dataset.train_batch_size = 16  # Per device
     dataset.test_batch_size = 4  # Per device
-    dataset.num_workers = 8
+    dataset.num_workers = 16  # Increased for better data loading performance
 
     # Learning rate
     config.lr = lr = ml_collections.ConfigDict()

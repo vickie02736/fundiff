@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Add parent directory to Python path to enable imports
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
 from absl import app
 from absl import flags
 from ml_collections import config_flags

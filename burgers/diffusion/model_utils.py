@@ -51,22 +51,22 @@ def loss_fn(encoder, decoder, params, batch, use_pde=True):
     return loss, (loss_data, loss_res)
 
 
-def create_train_step(encoder, decoder, mesh, use_pde=True):
+def create_train_step(encoder, decoder, mesh):
     @jax.jit
     @partial(
         shard_map,
         mesh=mesh,
-        in_specs=(P(), P("batch")),
+        in_specs=(P(), P("batch"), P()),
         out_specs=(P(), P(), P(), P()),
         check_rep=False
     )
-    def train_step(state, batch):
+    def train_step(state, batch, use_pde):
         # Pass the use_residual parameter to loss_fn
         grad_fn = jax.value_and_grad(
-            partial(loss_fn, encoder, decoder, use_pde=use_pde),
+            partial(loss_fn, encoder, decoder),
             has_aux=True
         )
-        (loss, aux), grads = grad_fn(state.params, batch)
+        (loss, aux), grads = grad_fn(state.params, batch, use_pde=use_pde)
         loss_data, loss_res = aux
 
         grads = lax.pmean(grads, "batch")

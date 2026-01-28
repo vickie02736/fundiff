@@ -1,0 +1,21 @@
+{
+  "os": "Linux-5.4.0-153-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.10.19",
+  "startedAt": "2026-01-20T22:33:15.276714Z",
+  "args": [
+    "--config=configs/autoencoder.py:fae",
+    "--config.training.use_pde=True"
+  ],
+  "program": "/autodl-fs/data/fundiff/burgers/diffusion/main.py",
+  "codePath": "burgers/diffusion/main.py",
+  "codePathLocal": "main.py",
+  "git": {
+    "remote": "https://github.com/sifanexisted/fundiff.git",
+    "commit": "3a663722ea8ed9f1da98f67a1af22445f7f488c2"
+  },
+  "email": "vickie02736@gmail.com",
+  "root": "/autodl-fs/data/fundiff/burgers/diffusion",
+  "host": "autodl-container-adcf44b688-9a256a8b",
+  "executable": "/root/miniconda3/envs/fundiff_env/bin/python",
+  "writerId": "j17ogj6h35r92qonifhbv06ed9jc0c2q"
+}

@@ -1,0 +1,7 @@
+{"time":"2026-01-21T02:53:19.812012178+08:00","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmpp1an5u5k/port-10860.txt","pid":10860,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2026-01-21T02:53:19.812938897+08:00","level":"INFO","msg":"server: will exit if parent process dies","ppid":10860}
+{"time":"2026-01-21T02:53:19.812872033+08:00","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-10860-13411-908552934/socket","Net":"unix"}}
+{"time":"2026-01-21T02:53:19.998562364+08:00","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
+{"time":"2026-01-21T02:53:20.009673336+08:00","level":"INFO","msg":"handleInformInit: received","streamId":"wtmpgp1v","id":"1(@)"}
+{"time":"2026-01-21T02:53:20.768154547+08:00","level":"INFO","msg":"handleInformInit: stream started","streamId":"wtmpgp1v","id":"1(@)"}
+{"time":"2026-01-21T05:15:03.647418989+08:00","level":"INFO","msg":"server: parent process exited, terminating service process"}

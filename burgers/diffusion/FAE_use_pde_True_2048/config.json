@@ -1,0 +1,82 @@
+{
+    "coords_dim": [
+        2
+    ],
+    "dataset": {
+        "data_path": "/root/autodl-tmp/burger_nu_1e-3.mat",
+        "downsample_factor": 1,
+        "num_train_samples": 3600,
+        "num_workers": 4,
+        "test_batch_size": 4,
+        "train_batch_size": 8
+    },
+    "logging": {
+        "log_interval": 1
+    },
+    "lr": {
+        "decay_rate": 0.9,
+        "init_value": 0.0,
+        "peak_value": 0.001,
+        "transition_steps": 2000,
+        "warmup_steps": 2000
+    },
+    "mode": "train_autoencoder",
+    "model": {
+        "decoder": {
+            "dec_depth": 4,
+            "dec_emb_dim": 256,
+            "dec_num_heads": 8,
+            "fourier_freq": 10.0,
+            "layer_norm_eps": 1e-05,
+            "mlp_ratio": 2,
+            "num_mlp_layers": 2,
+            "out_dim": 1,
+            "period": false
+        },
+        "encoder": {
+            "depth": 8,
+            "emb_dim": 256,
+            "grid_size": [
+                200,
+                200
+            ],
+            "layer_norm_eps": 1e-05,
+            "mlp_ratio": 2,
+            "num_heads": 8,
+            "num_latents": 100,
+            "patch_size": [
+                20,
+                20
+            ]
+        },
+        "model_name": "FAE"
+    },
+    "optim": {
+        "beta1": 0.9,
+        "beta2": 0.999,
+        "clip_norm": 1.0,
+        "eps": 1e-08,
+        "weight_decay": 1e-05
+    },
+    "saving": {
+        "num_keep_ckpts": 1,
+        "save_interval": 2
+    },
+    "seed": 42,
+    "training": {
+        "max_steps": 100000,
+        "num_queries": 2048,
+        "random_resolution": true,
+        "use_pde": true
+    },
+    "wandb": {
+        "project": "fundiff_burgers",
+        "tag": null
+    },
+    "x_dim": [
+        2,
+        200,
+        200,
+        1
+    ]
+}

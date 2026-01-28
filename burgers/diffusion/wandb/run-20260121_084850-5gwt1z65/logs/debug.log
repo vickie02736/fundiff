@@ -1,0 +1,70 @@
+2026-01-21 08:48:50,725 INFO    MainThread:2054 [wandb_setup.py:_flush():81] Current SDK version is 0.24.0
+2026-01-21 08:48:50,725 INFO    MainThread:2054 [wandb_setup.py:_flush():81] Configure stats pid to 2054
+2026-01-21 08:48:50,725 INFO    MainThread:2054 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-01-21 08:48:50,726 INFO    MainThread:2054 [wandb_init.py:setup_run_log_directory():717] Logging user logs to /autodl-fs/data/fundiff/burgers/diffusion/wandb/run-20260121_084850-5gwt1z65/logs/debug.log
+2026-01-21 08:48:50,726 INFO    MainThread:2054 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to /autodl-fs/data/fundiff/burgers/diffusion/wandb/run-20260121_084850-5gwt1z65/logs/debug-internal.log
+2026-01-21 08:48:50,727 INFO    MainThread:2054 [wandb_init.py:init():844] calling init triggers
+2026-01-21 08:48:50,736 INFO    MainThread:2054 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'_fields': {'seed': 42, 'x_dim': [2, 200, 200, 1], 'coords_dim': [2], 'mode': 'train_autoencoder', 'wandb': project: fundiff_burgers
+tag: null
+, 'dataset': data_path: /root/autodl-tmp/burger_nu_1e-3.mat
+downsample_factor: 1
+num_train_samples: 3600
+num_workers: 4
+test_batch_size: 4
+train_batch_size: 8
+, 'lr': decay_rate: 0.9
+init_value: 0.0
+peak_value: 0.001
+transition_steps: 2000
+warmup_steps: 2000
+, 'optim': beta1: 0.9
+beta2: 0.999
+clip_norm: 1.0
+eps: 1.0e-08
+weight_decay: 1.0e-05
+, 'training': max_steps: 100000
+num_queries: 4096
+random_resolution: true
+use_pde: true
+, 'logging': log_interval: 1
+, 'saving': num_keep_ckpts: 1
+save_interval: 2
+, 'model': decoder:
+  dec_depth: 4
+  dec_emb_dim: 256
+  dec_num_heads: 8
+  fourier_freq: 10.0
+  layer_norm_eps: 1.0e-05
+  mlp_ratio: 2
+  num_mlp_layers: 2
+  out_dim: 1
+  period: false
+encoder:
+  depth: 8
+  emb_dim: 256
+  grid_size: !!python/tuple
+  - 200
+  - 200
+  layer_norm_eps: 1.0e-05
+  mlp_ratio: 2
+  num_heads: 8
+  num_latents: 100
+  patch_size: !!python/tuple
+  - 20
+  - 20
+model_name: FAE
+}, '_locked': True, '_type_safe': True, '_convert_dict': True, '_allow_dotted_keys': False, '_sort_keys': True, '_wandb': {}}
+2026-01-21 08:48:50,736 INFO    MainThread:2054 [wandb_init.py:init():892] starting backend
+2026-01-21 08:48:50,998 INFO    MainThread:2054 [wandb_init.py:init():895] sending inform_init request
+2026-01-21 08:48:51,009 INFO    MainThread:2054 [wandb_init.py:init():903] backend started and connected
+2026-01-21 08:48:51,018 INFO    MainThread:2054 [wandb_init.py:init():973] updated telemetry
+2026-01-21 08:48:51,177 INFO    MainThread:2054 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-01-21 08:48:52,534 INFO    MainThread:2054 [wandb_init.py:init():1044] starting run threads in backend
+2026-01-21 08:48:52,680 INFO    MainThread:2054 [wandb_run.py:_console_start():2529] atexit reg
+2026-01-21 08:48:52,680 INFO    MainThread:2054 [wandb_run.py:_redirect():2377] redirect: wrap_raw
+2026-01-21 08:48:52,680 INFO    MainThread:2054 [wandb_run.py:_redirect():2446] Wrapping output streams.
+2026-01-21 08:48:52,680 INFO    MainThread:2054 [wandb_run.py:_redirect():2469] Redirects installed.
+2026-01-21 08:48:52,684 INFO    MainThread:2054 [wandb_init.py:init():1084] run started, returning control to user process
+2026-01-21 19:40:28,362 INFO    wandb-AsyncioManager-main:2054 [service_client.py:_forward_responses():80] Reached EOF.
+2026-01-21 19:40:28,363 INFO    wandb-AsyncioManager-main:2054 [mailbox.py:close():137] Closing mailbox, abandoning 1 handles.

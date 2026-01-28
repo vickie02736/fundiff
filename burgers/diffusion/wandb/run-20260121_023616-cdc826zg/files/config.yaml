@@ -1,0 +1,135 @@
+_allow_dotted_keys:
+    value: false
+_convert_dict:
+    value: true
+_fields:
+    value:
+        coords_dim:
+            - 2
+        dataset: |
+            data_path: /root/autodl-tmp/burger_nu_1e-3.mat
+            downsample_factor: 1
+            num_train_samples: 3600
+            num_workers: 8
+            test_batch_size: 4
+            train_batch_size: 16
+        logging: |
+            log_interval: 1
+        lr: |
+            decay_rate: 0.9
+            init_value: 0.0
+            peak_value: 0.001
+            transition_steps: 2000
+            warmup_steps: 2000
+        mode: train_autoencoder
+        model: |
+            decoder:
+              dec_depth: 4
+              dec_emb_dim: 256
+              dec_num_heads: 8
+              fourier_freq: 10.0
+              layer_norm_eps: 1.0e-05
+              mlp_ratio: 2
+              num_mlp_layers: 2
+              out_dim: 1
+              period: false
+            encoder:
+              depth: 8
+              emb_dim: 256
+              grid_size: !!python/tuple
+              - 200
+              - 200
+              layer_norm_eps: 1.0e-05
+              mlp_ratio: 2
+              num_heads: 8
+              num_latents: 100
+              patch_size: !!python/tuple
+              - 20
+              - 20
+            model_name: FAE
+        optim: |
+            beta1: 0.9
+            beta2: 0.999
+            clip_norm: 1.0
+            eps: 1.0e-08
+            weight_decay: 1.0e-05
+        saving: |
+            num_keep_ckpts: 1
+            save_interval: 2
+        seed: 42
+        training: |
+            max_steps: 100000
+            num_queries: 4096
+            random_resolution: true
+            use_pde: true
+        wandb: |
+            project: fundiff_burgers
+            tag: null
+        x_dim:
+            - 2
+            - 200
+            - 200
+            - 1
+_locked:
+    value: true
+_sort_keys:
+    value: true
+_type_safe:
+    value: true
+_wandb:
+    value:
+        cli_version: 0.24.0
+        e:
+            z2oj1gfs0hwnfcnmbj8izof7fd70zqe0:
+                args:
+                    - --config=configs/autoencoder.py:fae
+                    - --config.training.use_pde=True
+                codePath: burgers/diffusion/main.py
+                codePathLocal: main.py
+                cpu_count: 64
+                cpu_count_logical: 128
+                cudaVersion: "12.8"
+                disk:
+                    /:
+                        total: "32212254720"
+                        used: "10856472576"
+                email: vickie02736@gmail.com
+                executable: /root/miniconda3/envs/fundiff_env/bin/python
+                git:
+                    commit: 3a663722ea8ed9f1da98f67a1af22445f7f488c2
+                    remote: https://github.com/sifanexisted/fundiff.git
+                gpu: NVIDIA vGPU-32GB
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ada
+                      cudaCores: 9728
+                      memoryTotal: "34351349760"
+                      name: NVIDIA vGPU-32GB
+                      uuid: GPU-d03969d3-dfe6-a880-23a7-005f596dd303
+                host: autodl-container-adcf44b688-9a256a8b
+                memory:
+                    total: "540738871296"
+                os: Linux-5.4.0-153-generic-x86_64-with-glibc2.35
+                program: /autodl-fs/data/fundiff/burgers/diffusion/main.py
+                python: CPython 3.10.19
+                root: /autodl-fs/data/fundiff/burgers/diffusion
+                startedAt: "2026-01-20T18:36:16.319160Z"
+                writerId: z2oj1gfs0hwnfcnmbj8izof7fd70zqe0
+        m: []
+        python_version: 3.10.19
+        t:
+            "1":
+                - 1
+                - 12
+                - 45
+            "2":
+                - 1
+                - 12
+                - 45
+            "3":
+                - 13
+                - 16
+            "4": 3.10.19
+            "5": 0.24.0
+            "12": 0.24.0
+            "13": linux-x86_64

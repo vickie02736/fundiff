@@ -1,0 +1,34 @@
+Creating checkpoint manager...
+I0121 05:56:08.727565 140297340847168 checkpoint_manager.py:709] [process=0][thread=MainThread] CheckpointManager init: checkpointers=None, item_names=None, item_handlers=None, handler_registry=None
+I0121 05:56:08.728055 140297340847168 composite_checkpoint_handler.py:505] Initialized registry DefaultCheckpointHandlerRegistry({('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonSaveArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7f963c697100>, ('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonRestoreArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7f963c697100>}).
+I0121 05:56:08.728702 140297340847168 abstract_checkpointer.py:35] orbax-checkpoint version: 0.11.32
+I0121 05:56:08.728993 140297340847168 async_checkpointer.py:177] [process=0][thread=MainThread] Using barrier_sync_fn: <function get_barrier_sync_fn.<locals>.<lambda> at 0x7f963c6ba830> timeout: 600 secs and primary_host=0 for async checkpoint writes
+I0121 05:56:08.731117 140297340847168 checkpoint_manager.py:1818] Found 0 checkpoint steps in /autodl-fs/data/fundiff/burgers/diffusion/FAE_use_pde_True/ckpt
+I0121 05:56:08.731491 140297340847168 checkpoint_manager.py:929] [process=0][thread=MainThread] CheckpointManager created,  primary_host=0, CheckpointManagerOptions=CheckpointManagerOptions(save_interval_steps=1, max_to_keep=1, keep_time_interval=None, keep_period=None, should_keep_fn=None, best_fn=None, best_mode='max', keep_checkpoints_without_metrics=True, step_prefix=None, step_format_fixed_length=None, step_name_format=None, create=True, cleanup_tmp_directories=False, save_on_steps=frozenset(), single_host_load_and_broadcast=False, todelete_subdir=None, todelete_full_path=None, enable_background_delete=False, read_only=False, enable_async_checkpointing=True, async_options=None, multiprocessing_options=MultiprocessingOptions(primary_host=0, active_processes=None, barrier_sync_key_prefix=None), should_save_fn=None, file_options=FileOptions(path_permission_mode=None), save_root_metadata=True, temporary_path_class=None, save_decision_policy=None, preservation_policy=None, prevent_write_metrics=False, enable_should_save_is_saving_in_progress_check=True, enable_per_process_directory_creation=False, lightweight_initialize=False), root_directory=/autodl-fs/data/fundiff/burgers/diffusion/FAE_use_pde_True/ckpt: <orbax.checkpoint.checkpoint_manager.CheckpointManager object at 0x7f9644647490>
+Checkpoint manager created successfully
+Pre-computing constants...
+Constants pre-computed
+Starting training loop...
+Training configuration: use_pde=True, random_resolution=True
+Epoch 0, getting batches from DataLoader...
+First batch received, converting to JAX array...
+First batch processed, converting to global array...
+Calling train_step (JIT compilation will happen on first call)...
+First train_step completed in 159.25s (includes JIT compilation)
+step: 450,  loss data: 1.056e-02, loss res: 4.445e-02, time: 5.999e+02
+Traceback (most recent call last):
+  File "/autodl-fs/data/fundiff/burgers/diffusion/main.py", line 41, in <module>
+    app.run(main)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/absl/app.py", line 316, in run
+    _run_main(main, args)
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/absl/app.py", line 261, in _run_main
+    sys.exit(main(argv))
+  File "/autodl-fs/data/fundiff/burgers/diffusion/main.py", line 30, in main
+    train_autoencoder.train_and_evaluate(FLAGS.config)
+  File "/autodl-fs/data/fundiff/burgers/diffusion/train_autoencoder.py", line 167, in train_and_evaluate
+    save_checkpoint(ckpt_mngr, state)
+  File "/autodl-fs/data/fundiff/function_diffusion/utils/checkpoint_utils.py", line 22, in save_checkpoint
+    with jax.spmd_mode("allow_all"):
+  File "/root/miniconda3/envs/fundiff_env/lib/python3.10/site-packages/jax/_src/deprecations.py", line 57, in getattr
+    raise AttributeError(f"module {module!r} has no attribute {name!r}")
+AttributeError: module 'jax' has no attribute 'spmd_mode'

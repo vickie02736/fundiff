@@ -1,5 +1,5 @@
 import jax.numpy as jnp
-from jax import lax, jit, grad, random, tree_map
+from jax import lax, jit, grad, random
 
 import flax.linen as nn
 

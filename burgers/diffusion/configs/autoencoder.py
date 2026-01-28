@@ -32,12 +32,12 @@ def get_base_config():
 
     # Dataset
     config.dataset = dataset = ml_collections.ConfigDict()
-    dataset.data_path = "/scratch/sifanw/transformer_as_integrator/burgers/burger_nu_1e-3.mat"
+    dataset.data_path = "/root/autodl-tmp/burger_nu_1e-3.mat"
     dataset.downsample_factor = 1
     dataset.num_train_samples = 3600
-    dataset.train_batch_size = 16  # Per device
+    dataset.train_batch_size = 8  # Per device (reduced from 16 to fit in GPU memory)
     dataset.test_batch_size = 4  # Per device
-    dataset.num_workers = 8
+    dataset.num_workers = 4  # Reduced to avoid multiprocessing overhead
 
     # Learning rate
     config.lr = lr = ml_collections.ConfigDict()
@@ -61,6 +61,9 @@ def get_base_config():
     training.num_queries = 4096
     training.random_resolution = True
     training.use_pde = False
+    training.stage2_start_step = None  # Step to switch to stage 2 (data + PDE)
+    training.plateau_patience = 10     # Epochs to wait for plateau
+    training.plateau_threshold = 1e-4  # Threshold for plateau detection
 
     # Logging
     config.logging = logging = ml_collections.ConfigDict()

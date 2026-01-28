@@ -127,11 +127,19 @@ class BatchParser:
 def create_dataloader(dataset, batch_size, num_workers, shuffle=True, drop_last=True):
     num_devices = jax.device_count()
 
+    # Use 'spawn' instead of 'fork' to avoid JAX multiprocessing issues
+    # This prevents the RuntimeWarning about os.fork() incompatibility with JAX
+    multiprocessing_context = 'spawn' if num_workers > 0 else None
+
     data_loader = DataLoader(
         dataset,
         batch_size=batch_size * num_devices,
         num_workers=num_workers,
         shuffle=shuffle,
-        drop_last=drop_last
+        drop_last=drop_last,
+        multiprocessing_context=multiprocessing_context,
+        pin_memory=True,  # Faster data transfer
+        persistent_workers=True if num_workers > 0 else False,  # Keep workers alive
+        prefetch_factor=2 if num_workers > 0 else None  # Prefetch batches
     )
     return data_loader
